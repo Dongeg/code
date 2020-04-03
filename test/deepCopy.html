@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let a = {
+			name:1,
+			age:{
+				name:2
+			}
+		}
+		console.log(deepClone(a))
+		function deepClone(target){
+			let reault  = null
+			if(target && typeof target === 'object'){
+				if(Array.isArray(target)){
+					reault = []
+					for (let i = 0;i<target.length;i++){
+						reault[i] = deepClone(target[i])
+					}
+				}
+				else {
+					reault = {}
+					for (let key in target){
+						reault[key] = deepClone(target[key])
+					}
+				}
+			}
+			else {
+				return target
+			}
+			console.log(reault)
+			return reault
+		}
+
+
+
+
+
+
+
+
+
+		// function deepClone(obj) {
+		// 	let objClone = Array.isArray(obj) ? []:{};
+		// 	if (obj && typeof obj == 'object'){
+		// 		for(let key in obj){
+		// 			if(obj.hasOwnProerty(key)){
+		// 				if(obj[key] && typeof obj[key] == 'object'){
+		// 					objClone[key] = deepClone(obj[key])
+		// 				}
+		// 				else {
+		// 					objClone[key] = obj[key]
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	return objClone
+		// }
+	</script>
+</body>
+</html>

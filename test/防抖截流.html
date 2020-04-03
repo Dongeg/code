@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	防抖截流 </title>
+</head>
+<style type="text/css">
+	html,body{
+		width: 100%;
+		height: 1500px;
+	}
+</style>
+<body>
+	<input id="a" type="text" oninput="debounce()">
+	<script>
+		window.onload = ()=>{
+			window.onscroll = throttle()
+			document.getElementById('a').oninput = debounce()
+			// 截流
+			function throttle() {
+				let timeout;
+				return function() {
+					if (!timeout) {
+						timeout = setTimeout(() => {
+							timeout = null;
+							console.log(1111)
+						}, 1000)
+					}
+
+				}
+			}
+			// 防抖
+			function debounce(){
+				let timer = null
+				return function() {
+					if(timer){
+						clearTimeout(timer)
+					}
+					timer = setTimeout(()=>{
+						console.log(1111)
+					},1000)
+				}
+			}
+		}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+const list1 = [
+  {id:1,
+    name:'a'
+  },
+  {id:2,
+    name:'b'
+  },
+  {id:3,
+    name:'c'
+  },
+  {id:4,
+    name:'d'
+  },
+]
+const list2 = [
+  {id:3,
+    price:12
+  },
+  {id:4,
+    price:133
+  },
+  {id:5,
+    price:14
+  },
+  {id:6,
+    price:15
+  },
+]
+fn(list1,list2)
+function fn(arr1,arr2) {
+  let obj = {}
+  let arr = arr1.concat(arr2)
+  arr.forEach((item)=>{
+    if(obj[item.id]){
+      for(let key in item){
+        obj[item.id][key] = item[key]
+      }
+    }
+    else {
+      obj[item.id] = item
+    }
+  })
+  console.log(obj)
+}
+</script>
+</body>
+</html>
